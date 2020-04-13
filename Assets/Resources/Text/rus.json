@@ -1,0 +1,226 @@
+[
+	{
+		"Key": "newGame",
+		"Value": "Новая игра"
+	},
+	{
+		"Key": "continueGame",
+		"Value": "Продолжить игру"
+	},
+	{
+		"Key": "settings",
+		"Value": "Настройки"
+	},
+	{
+		"Key": "stat",
+		"Value": "Статистика"
+	},
+	{
+		"Key": "creator",
+		"Value": "Автор"
+	},
+	{
+		"Key": "supportProject",
+		"Value": "Поддержать проект"
+	},
+	{
+		"Key": "exit",
+		"Value": "Выход"
+	},
+	{
+		"Key": "size",
+		"Value": "Размер:"
+	},
+	{
+		"Key": "3x3",
+		"Value": "3x3"
+	},
+	{
+		"Key": "4x4",
+		"Value": "4x4"
+	},
+	{
+		"Key": "5x5",
+		"Value": "5x5"
+	},
+	{
+		"Key": "6x6",
+		"Value": "6x6"
+	},
+	{
+		"Key": "7x7",
+		"Value": "7x7"
+	},
+	{
+		"Key": "difficult",
+		"Value": "Сложность:"
+	},
+	{
+		"Key": "easy",
+		"Value": "Легко"
+	},
+	{
+		"Key": "medium",
+		"Value": "Средне"
+	},
+	{
+		"Key": "hard",
+		"Value": "Сложно"
+	},
+	{
+		"Key": "typeGame",
+		"Value": "Тип игры:"
+	},
+	{
+		"Key": "classicFifteen",
+		"Value": "Классические пятнашки"
+	},
+	{
+		"Key": "puzzleFifteen",
+		"Value": "Пазл"
+	},
+	{
+		"Key": "customPuzzleFifteen",
+		"Value": "Пазл из своего изображения"
+	},
+	{
+		"Key": "changeTitle",
+		"Value": "Изменить вид плитки"
+	},
+	{
+		"Key": "changeFrontStyle",
+		"Value": "Изменить шрифт чисел"
+	},
+	{
+		"Key": "winInAllOrders",
+		"Value": "Разрешить победу при установке пятнашек в разном направлении порядка"
+	},
+	{
+		"Key": "start",
+		"Value": "Старт!"
+	},
+	{
+		"Key": "back",
+		"Value": "Назад"
+	},
+	{
+		"Key": "wrnNewGame",
+		"Value": "Внимание! При нажатии кнопки старта - текущее сохранение будет утеряно!"
+	},
+	{
+		"Key": "changeImage",
+		"Value": "Изменить изображение"
+	},
+	{
+		"Key": "useNumbers",
+		"Value": "Использовать цифры(упрощает решение)"
+	},
+	{
+		"Key": "lastImages",
+		"Value": "Выбрать из 9 последних изображений"
+	},
+	{
+		"Key": "defaultSettings",
+		"Value": "Настройки по умолчанию:"
+	},
+	{
+		"Key": "frequencyOfSave",
+		"Value": "Частота автосохранений:"
+	},
+	{
+		"Key": "everySwap",
+		"Value": "При каждом перемещении"
+	},
+	{
+		"Key": "every3Swaps",
+		"Value": "Каждое 3ее перемещение"
+	},
+	{
+		"Key": "every5Swaps",
+		"Value": "Каждое 5ое перемещение"
+	},
+	{
+		"Key": "every10Swaps",
+		"Value": "Каждое 10ое перемещение"
+	},
+	{
+		"Key": "every25Swaps",
+		"Value": "Каждые 25 перемещений"
+	},
+	{
+		"Key": "onlyByButtonSave",
+		"Value": "Сохранять только при нажатии на кнопку"
+	},
+	{
+		"Key": "saveOnExit",
+		"Value": "Сохранять при выходе из игры"
+	},
+	{
+		"Key": "selectLang",
+		"Value": "Язык:"
+	},
+	{
+		"Key": "loadDefaultSettings", 
+		"Value": "Обнулить настройки по умолчанию"
+	},
+	{
+		"Key": "clearLastCustomImages",
+		"Value": "Очистить буффер последних изображений"
+	},
+	{
+		"Key": "showGameMessages",
+		"Value": "Разрешить игре показывать уведомления"
+	},
+	{
+		"Key": "autoUpdate",
+		"Value": "Автоматическое обновление(только по Wi-Fi)"
+	},
+	{
+		"Key": "autoPushError",
+		"Value": "Отправлять отчёт об ошибках"
+	},
+	{
+		"Key": "totalStat",
+		"Value": "Общая статистика"
+	},
+	{
+		"Key": "totalGamesStarted",
+		"Value": "Игр начато"
+	},
+	{
+		"Key": "totalGamesCompleted",
+		"Value": "Игр завершенно"
+	},
+	{
+		"Key": "percentOfComplete",
+		"Value": "% завершенно"
+	},
+	{
+		"Key": "averageTime",
+		"Value": "Среднее время на игру"
+	},
+	{
+		"Key": "averageSwaps",
+		"Value": "Среднее кол-во перестановок"
+	},
+	{
+		"Key": "bestTime",
+		"Value": "Лучшее время"
+	},
+	{
+		"Key": "bestSwaps",
+		"Value": "Наименьшее кол-во перестановок"
+	},
+	{
+		"Key": "сlearCurrentStat",
+		"Value": "Очистить текущую статистику"
+	},
+	{
+		"Key": "clearAllStat",
+		"Value": "Очистить всю статистику"
+	},
+	{
+		"Key": "toMenu",
+		"Value": "В меню"
+	}
+]

@@ -1,0 +1,226 @@
+[
+	{
+		"Key": "newGame",
+		"Value": "New game"
+	},
+	{
+		"Key": "continueGame",
+		"Value": "Continue game"
+	},
+	{
+		"Key": "settings",
+		"Value": "Settings"
+	},
+	{
+		"Key": "stat",
+		"Value": "Statictics"
+	},
+	{
+		"Key": "creator",
+		"Value": "Credit"
+	},
+	{
+		"Key": "supportProject",
+		"Value": "Support a project"
+	},
+	{
+		"Key": "exit",
+		"Value": "Exit"
+	},
+	{
+		"Key": "size",
+		"Value": "Size:"
+	},
+	{
+		"Key": "3x3",
+		"Value": "3x3"
+	},
+	{
+		"Key": "4x4",
+		"Value": "4x4"
+	},
+	{
+		"Key": "5x5",
+		"Value": "5x5"
+	},
+	{
+		"Key": "6x6",
+		"Value": "6x6"
+	},
+	{
+		"Key": "7x7",
+		"Value": "7x7"
+	},
+	{
+		"Key": "difficult",
+		"Value": "Difficult:"
+	},
+	{
+		"Key": "easy",
+		"Value": "Легко"
+	},
+	{
+		"Key": "medium",
+		"Value": "Средне"
+	},
+	{
+		"Key": "hard",
+		"Value": "Сложно"
+	},
+	{
+		"Key": "typeGame",
+		"Value": "Type of the game:"
+	},
+	{
+		"Key": "classicFifteen",
+		"Value": "Classic fifteen"
+	},
+	{
+		"Key": "puzzleFifteen",
+		"Value": "Puzzle"
+	},
+	{
+		"Key": "customPuzzleFifteen",
+		"Value": "Puzzle with custom image"
+	},
+	{
+		"Key": "changeTitle",
+		"Value": "Change title view"
+	},
+	{
+		"Key": "changeFrontStyle",
+		"Value": "Изменить font style"
+	},
+	{
+		"Key": "winInAllOrders",
+		"Value": "Allow victory when installing fifteen in different directions"
+	},
+	{
+		"Key": "start",
+		"Value": "Start!"
+	},
+	{
+		"Key": "back",
+		"Value": "Back"
+	},
+	{
+		"Key": "wrnNewGame",
+		"Value": "Warning! If you're starting new game - current save will be lost!"
+	},
+	{
+		"Key": "changeImage",
+		"Value": "Change image"
+	},
+	{
+		"Key": "useNumbers",
+		"Value": "Use numbers(easier)"
+	},
+	{
+		"Key": "lastImages",
+		"Value": "Select from last 9 images"
+	},
+	{
+		"Key": "defaultSettings",
+		"Value": "Default settings:"
+	},
+	{
+		"Key": "frequencyOfSave",
+		"Value": "Frequency of save:"
+	},
+	{
+		"Key": "everySwap",
+		"Value": "Every swap"
+	},
+	{
+		"Key": "every3Swaps",
+		"Value": "Every 3rd swap"
+	},
+	{
+		"Key": "every5Swaps",
+		"Value": "Every 5th swap"
+	},
+	{
+		"Key": "every10Swaps",
+		"Value": "Every 10th swap"
+	},
+	{
+		"Key": "every25Swaps",
+		"Value": "Every 25 swaps"
+	},
+	{
+		"Key": "onlyByButtonSave",
+		"Value": "Save only by press button"
+	},
+	{
+		"Key": "saveOnExit",
+		"Value": "Save on exit from game"
+	},
+	{
+		"Key": "selectLang",
+		"Value": "Language:"
+	},
+	{
+		"Key": "loadDefaultSettings",
+		"Value": "Reset to defaults"
+	},
+	{
+		"Key": "clearLastCustomImages",
+		"Value": "Clear buffer of last used images"
+	},
+	{
+		"Key": "showGameMessages",
+		"Value": "Allow game to show notifications"
+	},
+	{
+		"Key": "autoUpdate",
+		"Value": "Autoupdate(only by Wi-Fi)"
+	},
+	{
+		"Key": "autoPushError",
+		"Value": "Send bug log"
+	},
+	{
+		"Key": "totalStat",
+		"Value": "Total statistic"
+	},
+	{
+		"Key": "totalGamesStarted",
+		"Value": "Games started"
+	},
+	{
+		"Key": "totalGamesCompleted",
+		"Value": "Games completed"
+	},
+	{
+		"Key": "percentOfComplete",
+		"Value": "% completed"
+	},
+	{
+		"Key": "averageTime",
+		"Value": "Average time"
+	},
+	{
+		"Key": "averageSwaps",
+		"Value": "Average swaps"
+	},
+	{
+		"Key": "bestTime",
+		"Value": "Best time"
+	},
+	{
+		"Key": "bestSwaps",
+		"Value": "Lowest number of swaps"
+	},
+	{
+		"Key": "сlearCurrentStat",
+		"Value": "Clear current statistics"
+	},
+	{
+		"Key": "clearAllStat",
+		"Value": "Clear all statictics"
+	},
+	{
+		"Key": "toMenu",
+		"Value": "To menu"
+	}
+]
