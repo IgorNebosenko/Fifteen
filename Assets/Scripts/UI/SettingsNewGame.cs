@@ -1,10 +1,9 @@
-﻿using Game.IO;
-using Game.Exceptions;
-using Game.UI;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Game.Additional;
+using Game.IO;
+using Game.Exceptions;
 
 namespace Game.UI
 {
@@ -28,7 +27,13 @@ namespace Game.UI
         /// </summary>
         public TMP_Dropdown difficult;
 
+        /// <summary>
+        /// Add dropdown list for size
+        /// </summary>
         public AddDDListRaw ddSize;
+        /// <summary>
+        /// Add dropdown list for difficult
+        /// </summary>
         public AddDDListRaw ddDifficult;
 
         /// <summary>
@@ -57,8 +62,6 @@ namespace Game.UI
         /// </summary>
         public Toggle toggleUseNumbersAtCustomImage;
 
-
-        // Start is called before the first frame update
         void Start()
         {
             CheckUIElements();
@@ -68,12 +71,6 @@ namespace Game.UI
             ddDifficult.selectedIndex = (int)core.Container.difficult;
 
             SetUIElements();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
         /// <summary>

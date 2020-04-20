@@ -1,7 +1,7 @@
-﻿using TMPro;
+﻿using System.Threading.Tasks;
 using UnityEngine;
+using TMPro;
 using Game.Exceptions;
-using System.Threading.Tasks;
 
 namespace Game.Additional
 {
@@ -17,7 +17,6 @@ namespace Game.Additional
         /// </summary>
         public string idText;
 
-        // Start is called before the first frame update
         async void Start()
         {
             if (core == null)
@@ -38,6 +37,9 @@ namespace Game.Additional
             SetText();
         }
 
+        /// <summary>
+        /// Sets text to curreng game object
+        /// </summary>
         public void SetText()
         {
             gameObject.GetComponent<TextMeshProUGUI>().text =

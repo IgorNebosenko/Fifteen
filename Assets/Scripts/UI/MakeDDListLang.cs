@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Game.Additional;
 using TMPro;
+using Game.Additional;
 
 namespace Game.UI
 {

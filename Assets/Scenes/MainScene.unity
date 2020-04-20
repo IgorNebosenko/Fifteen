@@ -21285,6 +21285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2108044903}
+  - component: {fileID: 2108044905}
   - component: {fileID: 2108044904}
   m_Layer: 0
   m_Name: Ads
@@ -21317,6 +21318,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe5e9ded6a2bd494a835049bcc45054b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2108044905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108044902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6370c9281ec9f4cb23086fd631db88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2110630446

@@ -1,18 +1,24 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
-using Game.Interfaces;
 using System.Threading.Tasks;
+using UnityEngine;
 using Game.IO;
+using Game.Interfaces;
 using Game.Exceptions;
 
 namespace Game.UI
 {
     /// <summary>
-    /// Manager of global objects. Wait while all objects loads? and then - show UI
+    /// Manager of global objects. Wait while all objects loads, and then - show UI
     /// </summary>
     public class GlobalObjectManager : MonoBehaviour
     {
+        /// <summary>
+        /// List of global objects which loads by script
+        /// </summary>
         List<IGlobalObject> globalObjects;
+        /// <summary>
+        /// Defines is this manager initialized
+        /// </summary>
         bool isInitilized = false;
 
         /// <summary>

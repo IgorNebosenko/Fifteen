@@ -1,5 +1,5 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.UI
 {
@@ -13,6 +13,9 @@ namespace Game.UI
         /// </summary>
         public Toggle[] group;
 
+        /// <summary>
+        /// Last index
+        /// </summary>
         int lastIndex = -1;
 
         void Start()

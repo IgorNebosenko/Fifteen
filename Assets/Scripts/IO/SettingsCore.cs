@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Runtime.Serialization.Json;
 using System.IO;
+using System.Threading.Tasks;
+using UnityEngine;
+using System.Runtime.Serialization.Json;
 using Game.Interfaces;
 using Game.Additional;
 using Game.Exceptions;
-using UnityEngine;
 using static Game.Additional.MultiLangCore;
-using System.Threading.Tasks;
 
 namespace Game.IO
 {
@@ -115,6 +115,9 @@ namespace Game.IO
             }
         }
 
+        /// <summary>
+        /// Property of container
+        /// </summary>
         public SettingsContainer Container { get; private set; }
 
         /// <summary>
@@ -135,7 +138,6 @@ namespace Game.IO
         /// </summary>
         DataContractJsonSerializer serializer;
 
-        // Start is called before the first frame update
         void Start()
         {
             IsLoaded = false;
