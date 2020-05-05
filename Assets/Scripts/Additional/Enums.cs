@@ -1,7 +1,9 @@
-﻿namespace Game.Additional
+﻿using System;
+
+namespace Game.Additional
 {
     /// <summary>
-    /// Enums which defines difficults
+    /// Enums which defines difficult
     /// </summary>
     public enum EDifficult : byte
     { 
@@ -42,7 +44,7 @@
         Every5Swaps,
         Every10Swaps,
         Every25Swaps,
-        onlyByButtonSave
+        OnlyByButtonSave
     }
 
     /// <summary>
@@ -60,6 +62,7 @@
     /// <summary>
     /// Defines which types of ads provides, and what current ad type
     /// </summary>
+    [Flags]
     public enum ETypesAd : byte
     { 
         None = 0,

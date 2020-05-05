@@ -11,7 +11,7 @@ using Game.IO;
 namespace Game.Additional
 {
     /// <summary>
-    /// Core of multilanguage realisation. 
+    /// Core of multi language realization. 
     /// Must be call before main menu creates, but after properties 
     /// </summary>
     public class MultiLangCore : MonoBehaviour, IGlobalObject
@@ -25,28 +25,30 @@ namespace Game.Additional
             /// <summary>
             /// Id of system language
             /// </summary>
-            public SystemLanguage langID;
+            public SystemLanguage LangId;
+
             /// <summary>
-            /// Name of file at Assets\Resorces\Text
+            /// Name of file at Assets\Resources\Text
             /// </summary>
-            public string fileName;
+            public string FileName;
+
             /// <summary>
             /// Name of language which displays at selection language
             /// </summary>
-            public string displayName;
+            public string DisplayedName;
 
 #if UNITY_EDITOR
             /// <summary>
             /// This CTOR only for debug
             /// </summary>
-            /// <param name="langID">Language ID</param>
+            /// <param name="langId">Language ID</param>
             /// <param name="fileName">Name of file</param>
-            /// <param name="displayName">Displayed name of language</param>
-            public LangData(SystemLanguage langID, string fileName, string displayName)       
+            /// <param name="displayedName">Displayed name of language</param>
+            public LangData(SystemLanguage langId, string fileName, string displayedName)       
             {
-                this.langID = langID;
-                this.fileName = fileName;
-                this.displayName = displayName;
+                LangId = langId;
+                FileName = fileName;
+                DisplayedName = displayedName;
             }
 #endif
         }
@@ -54,43 +56,40 @@ namespace Game.Additional
         /// <summary>
         /// Container with language data
         /// </summary>
-        List<LangData> lstData;
+        private List<LangData> lstData;
         /// <summary>
         /// Dictionary of text pairs
         /// </summary>
-        Dictionary<string, string> textPairs;
+        private Dictionary<string, string> textPairs;
         /// <summary>
         /// Data serializer
         /// </summary>
-        DataContractJsonSerializer dataSerializer;
+        private DataContractJsonSerializer dataSerializer;
         /// <summary>
         /// Text serializer
         /// </summary>
-        DataContractJsonSerializer textSerializer;
+        private DataContractJsonSerializer textSerializer;
 
         /// <summary>
-        /// Containts list of MultiLang. This container needs for update values when
-        /// laungage edit.
+        /// Contains list of MultiLang. This container needs for update values when
+        /// language edit.
         /// </summary>
         public List<MultiLang> textFieldsContainer;
 
+        /// <summary>
+        /// Defines is core loaded
+        /// </summary>
         public bool IsLoaded { get; private set; }
 
         /// <summary>
         /// Returns path to data of text
         /// </summary>
-        static string PathToData
-        {
-            get 
-            {
-                return Path.Combine("Text", "data"); //<-do not use json!
-            }
-        }
+        private static string PathToData => Path.Combine("Text", "data"); //<-do not use json!
 
         /// <summary>
         /// Method which calls at first
         /// </summary>
-        async void Start()
+        private async void Start()
         {
             IsLoaded = false;
 
@@ -120,7 +119,7 @@ namespace Game.Additional
         /// <summary>
         /// Method of loading language data
         /// </summary>
-        void LoadLangData()
+        private void LoadLangData()
         {
             TextAsset data = Resources.Load<TextAsset>(PathToData);
             using (MemoryStream ms = new MemoryStream(data.bytes, 0, data.bytes.Length))
@@ -129,24 +128,24 @@ namespace Game.Additional
             }
         }
         /// <summary>
-        /// Method of checking: is current language in properties containts at lstDat.
-        /// If language not containts - loads english lang
+        /// Method of checking: is current language in properties contains at lstDat.
+        /// If language not contains - loads english lang
         /// </summary>
-        void CheckPropertyLang()
+        private void CheckPropertyLang()
         {
             SettingsCore sc = gameObject.GetComponent<SettingsCore>();
 
             foreach (LangData ld in lstData)
             {
-                if (ld.langID == sc.CurrentLanguage.langID)
+                if (ld.LangId == sc.CurrentLanguage.LangId)
                     return;
             }
-            sc.CurrentLanguage.langID = SystemLanguage.English;
+            sc.CurrentLanguage.LangId = SystemLanguage.English;
         }
 
         /// <summary>
         /// Method which loads dictionary of language pairs. Language which be used
-        /// seted at Properties.
+        /// sets at Properties.
         /// This method can be load from another methods
         /// </summary>
         public void LoadLangDictionary()
@@ -158,11 +157,11 @@ namespace Game.Additional
 
             foreach (LangData ld in lstData)
             {
-                if (ld.langID == sc.CurrentLanguage.langID)
-                {
-                    path = ld.fileName;
-                    break;
-                }
+                if (ld.LangId != sc.CurrentLanguage.LangId) 
+                    continue;
+
+                path = ld.FileName;
+                break;
             }
 
             if (path == null)
@@ -187,7 +186,7 @@ namespace Game.Additional
         /// Returns text by id
         /// </summary>
         /// <param name="id">id of phrase</param>
-        /// <returns>Text which in pair with id, or error messge if text not found</returns>
+        /// <returns>Text which in pair with id, or error message if text not found</returns>
         public string GetText(string id)
         {
             if (!textPairs.ContainsKey(id))
@@ -207,7 +206,7 @@ namespace Game.Additional
         {
             List<string> lst = new List<string>();
             foreach (LangData ld in lstData)
-                lst.Add(ld.displayName);
+                lst.Add(ld.DisplayedName);
             return lst;
         }
 
@@ -227,23 +226,20 @@ namespace Game.Additional
         /// <summary>
         /// Path to debug files
         /// </summary>
-        static string PathToDebugFiles
-        {
-            get
-            {
-                return "D:/DebugFiles";
-            }
-        }
+        private static string PathToDebugFiles => "D:/DebugFiles";
+
         /// <summary>
         /// Debug method, which makes default data file with russian and
         /// english languages
         /// </summary>
-        void MakeDataFile()
+        private void MakeDataFile()
         {
 
-            List<LangData> lst = new List<LangData>();
-            lst.Add(new LangData(SystemLanguage.Russian, "rus", "Русский"));
-            lst.Add(new LangData(SystemLanguage.English, "eng", "English"));
+            List<LangData> lst = new List<LangData>
+            {
+                new LangData(SystemLanguage.Russian, "rus", "Русский"),
+                new LangData(SystemLanguage.English, "eng", "English")
+            };
 
             if (!Directory.Exists(PathToDebugFiles))
                 Directory.CreateDirectory(PathToDebugFiles);
@@ -258,7 +254,7 @@ namespace Game.Additional
         /// <summary>
         /// Debug method, which makes default files of eng and rus localization
         /// </summary>
-        void MakeLangFiles()
+        private void MakeLangFiles()
         {
             Dictionary<string, string> rusDictionary = new Dictionary<string, string>();
             Dictionary<string, string> engDictionary = new Dictionary<string, string>();

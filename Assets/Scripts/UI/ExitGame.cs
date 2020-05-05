@@ -8,9 +8,9 @@ namespace Game.UI
     public class ExitGame : MonoBehaviour
     {
         /// <summary>
-        /// Mettod of termination
+        /// Method of termination
         /// </summary>
-        public void TerminatreGame()
+        public void TerminateGame()
         {
             Application.Quit();
         }

@@ -1,12 +1,12 @@
 [
   {
-    "displayName": "Русский",
-    "fileName": "rus",
-    "langID": 30
+    "DisplayedName": "Русский",
+    "FileName": "rus",
+    "LangId": 30
   },
   {
-    "displayName": "English",
-    "fileName": "eng",
-    "langID": 10
+    "DisplayedName": "English",
+    "FileName": "eng",
+    "LangId": 10
   }
 ]

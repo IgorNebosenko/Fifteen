@@ -50,9 +50,9 @@ namespace Game.UI
         public Toggle toggleModeCustomPuzzle;
 
         /// <summary>
-        /// Toggle is allowed win in diffrent destenations
+        /// Toggle is allowed win in different destinations
         /// </summary>
-        public Toggle toggleWinInAllDestenations;
+        public Toggle toggleWinInAllDestinations;
         /// <summary>
         /// Toggle is allowed using numbers in puzzle
         /// </summary>
@@ -62,7 +62,7 @@ namespace Game.UI
         /// </summary>
         public Toggle toggleUseNumbersAtCustomImage;
 
-        void Start()
+        private void Start()
         {
             CheckUIElements();
 
@@ -78,7 +78,7 @@ namespace Game.UI
         ///<exception cref="CantFindGlobalObj">Generates when SettingsCore is null</exception>
         ///<exception cref="CantFindUIElement">Generates when same UI is null</exception>
         /// </summary>
-        void CheckUIElements()
+        private void CheckUIElements()
         {
             if (core == null)
                 throw new CantFindGlobalObj("Can't find Settings core!");
@@ -99,9 +99,9 @@ namespace Game.UI
                 throw new CantFindUIElement("Can't find toggle of mode, which have " +
                     "variant - custom image");
 
-            if (toggleWinInAllDestenations == null)
+            if (toggleWinInAllDestinations == null)
                 throw new CantFindUIElement("Can't find toggle which defines win in all " +
-                    "destenations on UI new game window");
+                    "destinations on UI new game window");
             if (toggleUseNumbersPuzzle == null)
                 throw new CantFindUIElement("Can't find toggle which defines is need show " +
                     "numbers at puzzle mode");
@@ -111,7 +111,7 @@ namespace Game.UI
         }
         
         /// <summary>
-        /// Sets UI elements from settrings
+        /// Sets UI elements from settings
         /// </summary>
         public void SetUIElements()
         {
@@ -131,8 +131,8 @@ namespace Game.UI
                     break;
             }
 
-            toggleWinInAllDestenations.isOn =
-                core.Container.allowDiffrentDestenationWin;
+            toggleWinInAllDestinations.isOn =
+                core.Container.allowDifferentDestinationWin;
             toggleUseNumbersPuzzle.isOn =
                 core.Container.allowUsingNumbersPuzzle;
             toggleUseNumbersAtCustomImage.isOn =
@@ -140,12 +140,12 @@ namespace Game.UI
         }
 
         /// <summary>
-        /// Method of change property which defines is need win in all destenations
+        /// Method of change property which defines is need win in all destinations
         /// </summary>
         /// <param name="state">State</param>
-        public void ChangeWinAllDestenations(bool state)
+        public void ChangeWinAllDestinations(bool state)
         {
-            core.Container.allowDiffrentDestenationWin = state;
+            core.Container.allowDifferentDestinationWin = state;
             core.WriteToFile();
         }
 

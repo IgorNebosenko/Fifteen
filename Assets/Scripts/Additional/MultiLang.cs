@@ -10,14 +10,14 @@ namespace Game.Additional
         /// <summary>
         /// Property which contains name of global object with MultiLangCore
         /// </summary>
-        public static MultiLangCore core = null;
+        public static MultiLangCore core;
 
         /// <summary>
         /// String with key
         /// </summary>
         public string idText;
 
-        async void Start()
+        private async void Start()
         {
             if (core == null)
             {
@@ -38,7 +38,7 @@ namespace Game.Additional
         }
 
         /// <summary>
-        /// Sets text to curreng game object
+        /// Sets text to current game object
         /// </summary>
         public void SetText()
         {

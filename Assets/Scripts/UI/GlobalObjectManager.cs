@@ -15,35 +15,35 @@ namespace Game.UI
         /// <summary>
         /// List of global objects which loads by script
         /// </summary>
-        List<IGlobalObject> globalObjects;
+        private List<IGlobalObject> globalObjects;
         /// <summary>
         /// Defines is this manager initialized
         /// </summary>
-        bool isInitilized = false;
+        private bool isInitialized = false;
 
         /// <summary>
         /// GameObject of UI main window
         /// </summary>
-        public GameObject MainWindow;
+        public GameObject mainWindow;
         /// <summary>
         /// GameObject of UI settings
         /// </summary>
-        public GameObject Settings;
+        public GameObject settings;
         /// <summary>
         /// GameObject of UI first start screen
         /// </summary>
-        public GameObject FirstStartScreen;
+        public GameObject firstStartScreen;
 
 
-        void Start()
+        private void Start()
         {
             globalObjects = new List<IGlobalObject>();
             globalObjects.AddRange(gameObject.GetComponents<IGlobalObject>());
         }
 
-        async void Update()
+        private async void Update()
         {
-            if (isInitilized)
+            if (isInitialized)
             {
                 await Task.Delay(100);
                 return;
@@ -52,37 +52,37 @@ namespace Game.UI
             {
                 if (!i.IsLoaded)
                 {
-                    isInitilized = false;
+                    isInitialized = false;
                     break;
                 }
                 else
-                    isInitilized = true;
+                    isInitialized = true;
             }
-            if (isInitilized)
+            if (isInitialized)
             {
-                Initilize();
+                Initialize();
             }
             await Task.Delay(10);
 
         }
 
-        void Initilize()
+        private void Initialize()
         {
             SettingsCore sc = gameObject.GetComponent<SettingsCore>();
             if (sc.ShowMessageAboutCust)
             {
-                if (Settings == null)
+                if (settings == null)
                     throw new CantFindUIElement("Can't find Settings UI!");
-                Settings.SetActive(true);
-                if (FirstStartScreen == null)
+                settings.SetActive(true);
+                if (firstStartScreen == null)
                     throw new CantFindUIElement("Can't find first start screen on UI");
-                FirstStartScreen.SetActive(true);
+                firstStartScreen.SetActive(true);
             }
             else
             {
-                if (MainWindow == null)
+                if (mainWindow == null)
                     throw new CantFindUIElement("Can't find Main Window UI");
-                MainWindow.SetActive(true);
+                mainWindow.SetActive(true);
             }
         }
     }

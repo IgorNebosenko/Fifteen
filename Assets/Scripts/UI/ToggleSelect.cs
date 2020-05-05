@@ -16,9 +16,9 @@ namespace Game.UI
         /// <summary>
         /// Last index
         /// </summary>
-        int lastIndex = -1;
+        private int lastIndex = -1;
 
-        void Start()
+        private void Start()
         {
             if (group == null || group.Length == 0)
             {
@@ -50,7 +50,7 @@ namespace Game.UI
 
         }
 
-        void Update()
+        private void Update()
         {
             if (group.Length == 0)
                 return;

@@ -16,7 +16,7 @@ namespace Game.IO
     public class SettingsCore : MonoBehaviour, IGlobalObject
     {
         /// <summary>
-        /// Class which containts settings data
+        /// Class which contains settings data
         /// </summary>
         [Serializable]
         public class SettingsContainer
@@ -51,7 +51,7 @@ namespace Game.IO
             /// </summary>
             public bool allowPushMessages = true;
             /// <summary>
-            /// Defines allow autoupdate. As default - it's function disabled
+            /// Defines allow auto-update. As default - it's function disabled
             /// </summary>
             public bool autoUpdate = false;
             /// <summary>
@@ -60,9 +60,9 @@ namespace Game.IO
             public bool pushErrors = true;
 
             /// <summary>
-            /// Defines is user allow win in diffrent destenations for classic
+            /// Defines is user allow win in different destinations for classic
             /// </summary>
-            public bool allowDiffrentDestenationWin = false;
+            public bool allowDifferentDestinationWin = false;
             /// <summary>
             /// Defines is user allow using numbers at mode "Puzzle"
             /// </summary>
@@ -87,13 +87,7 @@ namespace Game.IO
         /// <summary>
         /// Defines is file with settings exists
         /// </summary>
-        public bool IsSettingsFileExists
-        {
-            get
-            {
-                return File.Exists(PathToFileSettings);
-            }
-        }
+        public bool IsSettingsFileExists => File.Exists(PathToFileSettings);
 
         /// <summary>
         /// Defines is need show message about customization
@@ -105,14 +99,8 @@ namespace Game.IO
         /// </summary>
         public LangData CurrentLanguage
         {
-            get 
-            {
-                return Container.currentLang;
-            }
-            set
-            {
-                Container.currentLang = value;
-            }
+            get => Container.currentLang;
+            set => Container.currentLang = value;
         }
 
         /// <summary>
@@ -123,22 +111,17 @@ namespace Game.IO
         /// <summary>
         /// Path to file settings.json
         /// </summary>
-        string PathToFileSettings
-        {
-            get
-            {
-                return Path.Combine(
-                        Application.persistentDataPath,
-                        "settings.json");
-            }
-        }
+        private static string PathToFileSettings =>
+            Path.Combine(
+                Application.persistentDataPath,
+                "settings.json");
 
         /// <summary>
         /// Serializer
         /// </summary>
-        DataContractJsonSerializer serializer;
+        private DataContractJsonSerializer serializer;
 
-        void Start()
+        private void Start()
         {
             IsLoaded = false;
 
@@ -165,7 +148,7 @@ namespace Game.IO
         /// <summary>
         /// Async method of getting system language, and set it to container
         /// </summary>
-        async void GetSystemLang()
+        private async void GetSystemLang()
         {
             SystemLanguage sl = Application.systemLanguage;
             MultiLangCore mlcRef = gameObject.GetComponent<MultiLangCore>();
@@ -177,7 +160,7 @@ namespace Game.IO
                 await Task.Delay(10);
 
 
-            if (sl == SystemLanguage.Russian || //list of countries which undestand russian
+            if (sl == SystemLanguage.Russian || //list of countries which understand russian
                 sl == SystemLanguage.Ukrainian ||
                 sl == SystemLanguage.Polish ||
                 sl == SystemLanguage.Belarusian ||
@@ -189,7 +172,7 @@ namespace Game.IO
                 foreach (LangData ld in mlcRef.LanguageDataList)
                 {
                     //If founded russian language data
-                    if (ld.langID == SystemLanguage.Russian)
+                    if (ld.LangId == SystemLanguage.Russian)
                     {
                         Container.currentLang = ld;
                         return;
@@ -203,7 +186,7 @@ namespace Game.IO
                 foreach (LangData ld in mlcRef.LanguageDataList)
                 {
                     //If founded russian language data
-                    if (ld.langID == SystemLanguage.English)
+                    if (ld.LangId == SystemLanguage.English)
                     {
                         Container.currentLang = ld;
                         return;
@@ -237,13 +220,13 @@ namespace Game.IO
             if (!IsSettingsFileExists)
             {
                 Debug.LogWarning("Settings file is not exists! This file will be " +
-                    "creted with default settings if it's null");
+                    "created with default settings if it's null");
                 
                 if (Container != null)
                     return;
                 Container = new SettingsContainer();
                 GetSystemLang();
-                //Finaly - write created settings
+                //Finally - write created settings
                 WriteToFile();
                 return;
             }

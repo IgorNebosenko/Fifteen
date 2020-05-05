@@ -1,30 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using Game.Interfaces;
+using Game.Additional;
 
 namespace Game.Ads
 {
     /// <summary>
-    /// Ad provider. Provides correct work of adverstions
+    /// Ad provider. Provides correct work of ads
     /// </summary>
     public class AdProvider : MonoBehaviour
     {
         /// <summary>
         /// List of ad providers
         /// </summary>
-        List<IAd> adList;
+        private List<IAd> adList;
 
-        // Start is called before the first frame update
-        async void Start()
+        private async void Start()
         {
             adList = new List<IAd>();
             adList.AddRange(gameObject.GetComponents<IAd>());
+
+            bool internetAvailable = IsInthernetConnected();
+
+            foreach (IAd ad in adList)
+            {
+                if (internetAvailable)
+                    await Task.Run(ad.Load);
+                else
+                    ad.AdStatus = EAdStatus.NoEthernet;
+            }
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
 
+        }
+
+        /// <summary>
+        /// Defines is Internet avalible
+        /// </summary>
+        /// <returns>True - if connected, false - if not connected</returns>
+        private bool IsInthernetConnected()
+        {
+            return Application.internetReachability !=
+                NetworkReachability.NotReachable;
         }
     }
 }

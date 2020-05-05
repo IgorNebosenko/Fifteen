@@ -18,18 +18,18 @@ namespace Game.UI
         /// <summary>
         /// List of text strings
         /// </summary>
-        public string[] ListText;
+        public string[] listText;
 
-        void Start()
+        private void Start()
         {
             TMP_Dropdown dd = gameObject.GetComponent<TMP_Dropdown>();
 
-            for (int i = 0; i < ListText.Length; ++i)
+            foreach (var t in listText)
             {
                 dd.options.Add(new TMP_Dropdown.OptionData(
-                    MultiLang.core.GetText(ListText[i]))) ;
+                    MultiLang.core.GetText(t))) ;
             }
-            if (ListText.Length > 1) //<-Sometimes value with id 0 - don't selected!
+            if (listText.Length > 1) //<-Sometimes value with id 0 - don't selected!
                 dd.value = 1;
             else //Dropdown must have more than 1 value
                 Debug.LogWarning("DropDown has less than 2 variants!");

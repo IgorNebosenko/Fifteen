@@ -15,7 +15,7 @@ namespace Game.UI
         /// </summary>
         public int selectedIndex = 0;
 
-        void Start()
+        private void Start()
         {
             TMP_Dropdown dd = gameObject.GetComponent<TMP_Dropdown>();
 

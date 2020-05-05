@@ -10,7 +10,7 @@ namespace Game.Additional
     /// </summary>
     public class ShowVersion : MonoBehaviour
     {
-        void Start()
+        private void Start()
         {
             TextMeshProUGUI textObj = this.gameObject.GetComponent<TextMeshProUGUI>();
             if (textObj == null)

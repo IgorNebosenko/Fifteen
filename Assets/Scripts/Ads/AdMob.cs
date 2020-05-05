@@ -14,69 +14,69 @@ namespace Game.Ads
         /// <summary>
         /// View of banner
         /// </summary>
-        BannerView bannerBottom;
+        private BannerView bannerBottom;
         /// <summary>
         /// Image ad
         /// </summary>
-        InterstitialAd imageAd;
+        private InterstitialAd imageAd;
         /// <summary>
         /// Video ad
         /// </summary>
-        InterstitialAd videoAd;
+        private InterstitialAd videoAd;
         /// <summary>
         /// Reward video ad
         /// </summary>
-        RewardedAd rewardedVideoAd;
+        private RewardedAd rewardedVideoAd;
 
         #region Ads keys
         /// <summary>
         /// Ad ID for Android
         /// </summary>
-        const string androidID = "ca-app-pub-1130867258699163~6520774498";
+        private const string AndroidId = "ca-app-pub-1130867258699163~6520774498";
         /// <summary>
         /// Ad ID for IOS
         /// </summary>
-        const string iosID = "ca-app-pub-1130867258699163~2961954811";
+        private const string IosId = "ca-app-pub-1130867258699163~2961954811";
         #endregion
         #region Banner keys
         /// <summary>
         /// Banner ID for Android
         /// </summary>
-        const string androidBannerID = "ca-app-pub-1130867258699163/8559973847";
+        private const string AndroidBannerId = "ca-app-pub-1130867258699163/8559973847";
         /// <summary>
         /// Banner ID for IOS
         /// </summary>
-        const string iosBannerID = "ca-app-pub-1130867258699163/2578811432";
+        private const string IosBannerId = "ca-app-pub-1130867258699163/2578811432";
         #endregion
         #region Image keys
         /// <summary>
         /// Image ID for Android
         /// </summary>
-        const string androidImageID = "ca-app-pub-1130867258699163/3196036338";
+        private const string AndroidImageId = "ca-app-pub-1130867258699163/3196036338";
         /// <summary>
         /// Image ID for IOS
         /// </summary>
-        const string iosImageID = "ca-app-pub-1130867258699163/1927186693";
+        private const string IosImageId = "ca-app-pub-1130867258699163/1927186693";
         #endregion
         #region Video keys
         /// <summary>
         /// Video ID for Android
         /// </summary>
-        const string androidVideoID = "ca-app-pub-1130867258699163/8712974942";
+        private const string AndroidVideoId = "ca-app-pub-1130867258699163/8712974942";
         /// <summary>
         /// Video ID for IOS
         /// </summary>
-        const string iosVideoID = "ca-app-pub-1130867258699163/8109451665";
+        private const string IosVideoId = "ca-app-pub-1130867258699163/8109451665";
         #endregion
         #region Reward video for Android
         /// <summary>
         /// Reward video ID for Android
         /// </summary>
-        const string androidRewardVideoID = "ca-app-pub-1130867258699163/4229916404";
+        private const string AndroidRewardVideoId = "ca-app-pub-1130867258699163/4229916404";
         /// <summary>
         /// Reward video ID for IOS
         /// </summary>
-        const string iosRewardVideoID = "ca-app-pub-1130867258699163/3787063271";
+        private const string IosRewardVideoId = "ca-app-pub-1130867258699163/3787063271";
         #endregion
 
         #region Global properties
@@ -98,7 +98,7 @@ namespace Game.Ads
         public ETypesAd CurrentAd { get; set; }
         #endregion
         #region Core methods
-        void Start()
+        private void Start()
         {
             AdStatus = EAdStatus.Loads;
             IsNowActive = false;
@@ -109,7 +109,7 @@ namespace Game.Ads
             CurrentAd = ETypesAd.None;
 
 #if UNITY_ANDROID
-            MobileAds.Initialize(androidID);
+            MobileAds.Initialize(AndroidId);
 #elif UNITY_IPHONE
             MobileAds.Initialize(iosID);
 #else
@@ -123,10 +123,10 @@ namespace Game.Ads
         public async void Load()
         {
 #if UNITY_ANDROID
-            bannerBottom = new BannerView(androidBannerID, AdSize.Banner, AdPosition.Bottom);
-            imageAd = new InterstitialAd(androidImageID);
-            videoAd = new InterstitialAd(androidVideoID);
-            rewardedVideoAd = new RewardedAd(androidRewardVideoID);
+            bannerBottom = new BannerView(AndroidBannerId, AdSize.Banner, AdPosition.Bottom);
+            imageAd = new InterstitialAd(AndroidImageId);
+            videoAd = new InterstitialAd(AndroidVideoId);
+            rewardedVideoAd = new RewardedAd(AndroidRewardVideoId);
 #elif UNITY_IPHONE
             bannerBottom = new BannerView(iosBannerID, AdSize.Banner, AdPosition.Bottom);
             imageAd = new InterstitialAd(iosImageID);
@@ -150,12 +150,9 @@ namespace Game.Ads
         /// </summary>
         public void Close()
         {
-            if (bannerBottom != null)
-                bannerBottom.Destroy();
-            if (imageAd != null)
-                imageAd.Destroy();
-            if (videoAd != null)
-                videoAd.Destroy();
+            bannerBottom?.Destroy();
+            imageAd?.Destroy();
+            videoAd?.Destroy();
         }
         #endregion
         #region Methods for work with ads
@@ -164,59 +161,53 @@ namespace Game.Ads
         /// </summary>
         public void ShowBanner()
         {
-            if (bannerBottom != null)
-                bannerBottom.Show();
+            bannerBottom?.Show();
         }
         /// <summary>
         /// Method for hide banner
         /// </summary>
         public void HideBanner()
         {
-            if (bannerBottom != null)
-                bannerBottom.Hide();
+            bannerBottom?.Hide();
         }
         /// <summary>
         /// Method for show ad as image
         /// </summary>
         public void ShowImage()
         {
-            if (imageAd != null)
-                imageAd.Show();
+            imageAd?.Show();
         }
         /// <summary>
         /// Method of show ad as video
         /// </summary>
         public void ShowVideo()
         {
-            if (videoAd != null)
-                videoAd.Show();
+            videoAd?.Show();
         }
         /// <summary>
         /// Method of show ad as revenue video
         /// </summary>
         public void ShowRevenueVideo()
         {
-            if (rewardedVideoAd != null)
-                rewardedVideoAd.Show();
+            rewardedVideoAd?.Show();
         }
         #endregion
         #region Events
         /// <summary>
         /// Method of add events
         /// </summary>
-        void AddEvents()
+        private void AddEvents()
         {
-            bannerBottom.OnAdLoaded += UniversalLoadSucssesEvent;
+            bannerBottom.OnAdLoaded += UniversalLoadSuccssesEvent;
             bannerBottom.OnAdFailedToLoad += UniversalLoadErrorEvent;
 
-            imageAd.OnAdLoaded += UniversalLoadSucssesEvent;
+            imageAd.OnAdLoaded += UniversalLoadSuccssesEvent;
             imageAd.OnAdFailedToLoad += UniversalLoadErrorEvent;
 
-            videoAd.OnAdLoaded += UniversalLoadSucssesEvent;
+            videoAd.OnAdLoaded += UniversalLoadSuccssesEvent;
             videoAd.OnAdFailedToLoad += UniversalLoadErrorEvent;
 
-            rewardedVideoAd.OnAdLoaded += UniversalLoadSucssesEvent;
-            rewardedVideoAd.OnAdFailedToLoad += UniversalLoadErrorEvent;
+            rewardedVideoAd.OnAdLoaded += UniversalLoadSuccssesEvent;
         }
 
         /// <summary>
@@ -224,7 +215,7 @@ namespace Game.Ads
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Event arguments</param>
-        void UniversalLoadSucssesEvent(object sender, System.EventArgs e)
+        private void UniversalLoadSuccssesEvent(object sender, System.EventArgs e)
         {
             if (AdStatus == EAdStatus.Loads)
                 AdStatus = EAdStatus.Loaded;
@@ -234,7 +225,7 @@ namespace Game.Ads
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Event arguments</param>
-        void UniversalLoadErrorEvent(object sender, AdFailedToLoadEventArgs e)
+        private void UniversalLoadErrorEvent(object sender, AdFailedToLoadEventArgs e)
         {
             if (AdStatus != EAdStatus.NoEthernet)
                 AdStatus = EAdStatus.Failed;
